@@ -1,6 +1,6 @@
 const Reference = () => {
   return (
-    <div className="bg-blur">
+    <>
       {/* Sidebar */}
       <div className="sidenav">
         <h1>Nhom 3</h1>
@@ -93,13 +93,17 @@ const Reference = () => {
           </div>
           {/* Choices */}
           <div className="choices">
-            <a className="choice" href="#">Month</a>
-            <a className="choice" href="#">Year</a>
+            <a className="choice" href="#">
+              Month
+            </a>
+            <a className="choice" href="#">
+              Year
+            </a>
           </div>
 
           {/*Buttons */}
           <div className="buttons">
-            <button className="button">Click me</button>
+            <button className="big-button">Click me</button>
           </div>
         </div>
         <div className="red-line-for-fun">
@@ -109,7 +113,7 @@ const Reference = () => {
           atque qui minus sapiente aperiam?
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
