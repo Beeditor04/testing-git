@@ -1,18 +1,38 @@
 const Reference = () => {
   return (
     <div className="bg-blur">
-       {/* Sidebar */}
+      {/* Sidebar */}
       <div className="sidenav">
         <h1>Nhom 3</h1>
         <ul>
-          <li><a href="#" alt="a">Search</a></li>
-          <li><a href="#" alt="a">Book</a></li>
-          <li><a href="#" alt="a">Statistic</a></li>
-          <li><a href="#" alt="a">Schedule</a></li>
+          <li>
+            <a href="#" alt="a">
+              Search
+            </a>
+          </li>
+          <li>
+            <a href="#" alt="a">
+              Book
+            </a>
+          </li>
+          <li>
+            <a href="#" alt="a">
+              Statistic
+            </a>
+          </li>
+          <li>
+            <a href="#" alt="a">
+              Schedule
+            </a>
+          </li>
         </ul>
         <div className="icons">
-          <a href="#"><span className="material-symbols-outlined">account_circle</span></a>
-          <a href="#"><span className="material-symbols-outlined">settings</span></a>
+          <a href="#">
+            <span className="material-symbols-outlined">account_circle</span>
+          </a>
+          <a href="#">
+            <span className="material-symbols-outlined">settings</span>
+          </a>
         </div>
       </div>
       <div className="wrapper">
@@ -71,8 +91,16 @@ const Reference = () => {
               <input className="date-input" type="date" />
             </div>
           </div>
+          {/* Choices */}
+          <div className="choices">
+            <a className="choice" href="#">Month</a>
+            <a className="choice" href="#">Year</a>
+          </div>
 
-
+          {/*Buttons */}
+          <div className="buttons">
+            <button className="button">Click me</button>
+          </div>
         </div>
         <div className="red-line-for-fun">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
