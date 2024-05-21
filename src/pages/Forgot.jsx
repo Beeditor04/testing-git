@@ -2,24 +2,24 @@ import BigButton from "../components/BigButton";
 import ContainerBlur from "../components/ContainerBlur";
 import ContainerInput from "../components/ContainerInput";
 import { Link } from "react-router-dom";
-const SignIn = () => {
+const Forgot = () => {
   return (
     <div className="middle">
       <ContainerBlur
         render={
           <>
             <div className="all-input">
-              <ContainerInput text={"Email"} type={"email"} />
-              <ContainerInput text={"Enter password"} type={"password"} />
+              <ContainerInput text={"Old password"} type={"password"} />
+              <ContainerInput text={"New password"} type={"password"} />
+              <ContainerInput text={"Confirm new password"} type={"password"} />
             </div>
-            <Link className="other-options" to='/signup'><h4>Create an account</h4></Link>
+            <Link className="other-options" to='/signin'><h4>Back to sign in</h4></Link>
           </>
         }
       ></ContainerBlur>
-        <Link className="forgot" to='/forgot'><h4>Forgot password?</h4></Link>
-        <BigButton text="Sign in" link="/home"/>
+        <BigButton text="Confirm" link="/home"/>
     </div>
   );
 };
 
-export default SignIn;
+export default Forgot;
