@@ -4,19 +4,23 @@
   --black: #232323;
   --white: #f6fbff;
   --gray-text: rgb(2, 0, 0, 0.6);
-
+  --white-container: rgba(255, 255, 255, 0.5);
   --blue-title: #265086;
   --blue-pale: #c7e1f0;
   --blue-smallText: #3f69b5;
   --blue-button: #5094c5;
-  --shadow-middle: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
-  --shadow-down: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.15));
+  --denied: rgba(197, 80, 80, 0.70);
+  --shadow-middle: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+  --shadow-down: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.15));
 
   /* Sidebar*/
   --width-sidebar: 200px;
   --color-sidebar: rgb(231, 244, 252, 0.64);
+
   /* border */
-  --border-button: 25px;
+  --border-button: 15px;
+  --border-mini: 10px;
+  --border-sidebar: 25px;
   --border-container: 40px;
   --border-round: 200px;
   --gray-border: #c8c8c8;
@@ -35,40 +39,40 @@
       rgba(202, 222, 242, 0.9) 0%,
       rgba(202, 222, 242, 0.9) 88.5%,
       rgba(202, 222, 242, 0) 100%
-    ),
-    radial-gradient(
+  ),
+  radial-gradient(
       50.88% 17.21% at 25.94% 9%,
       rgba(73, 121, 169, 0.9) 0%,
       rgba(197, 226, 255, 0.9) 88.5%,
       rgba(158, 179, 202, 0.182) 100%
-    ),
-    linear-gradient(
-        to bottom right,
-        rgba(201, 222, 242, 0.9) 0%,
-        rgba(192, 217, 240, 0.9) 44%,
-        rgba(202, 222, 242, 0) 50%
+  ),
+  linear-gradient(
+      to bottom right,
+      rgba(201, 222, 242, 0.9) 0%,
+      rgba(192, 217, 240, 0.9) 44%,
+      rgba(202, 222, 242, 0) 50%
       )
       bottom right / 50% 50% no-repeat,
-    conic-gradient(
+  conic-gradient(
       from 31deg at 26.25% 77.49%,
       rgba(199, 225, 240, 0.5) 0deg,
       rgba(163, 206, 233, 0.5) 120.6000030040741deg,
       rgba(180, 168, 224, 0.5) 255.59999227523804deg,
       rgba(100, 154, 220, 0.5) 360deg
-    ),
-    linear-gradient(
+  ),
+  linear-gradient(
       0deg,
       rgba(152, 156, 160, 0.5) 0%,
       rgba(52, 110, 162, 0.5) 100%
-    ),
-    conic-gradient(
+  ),
+  conic-gradient(
       from 250deg at 75.47% 28.31%,
       #c7e1ee 0deg,
       #8cc6ea 12.6000030040741deg,
       #c7c5da 25.59999227523804deg,
       #3f69b5 360deg
-    ),
-    rgba(191, 224, 251, 0.6);
+  ),
+  rgba(191, 224, 251, 0.6);
 }
 body {
   overflow: hidden;
@@ -106,8 +110,9 @@ body {
   gap: 10px;
   justify-items: center;
   grid-template-areas:
-    "text container-blur"
-    "search-bar search-bar";
+  "text container-blur"
+  "search-bar search-bar"
+  "choices choices";
 }
 
 .red-line-for-fun {
@@ -151,12 +156,12 @@ p {
   width: 25rem;
   height: 20rem;
   border: 2px solid #fff;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(15px);
+  background: var(--white-container);
+  backdrop-filter: blur(35px);
   border-radius: var(--border-container);
   padding-top: 20px;
   padding-bottom: 20px;
-  filter: var(--shadow-middle);
+  filter: var(--shadow-down);
 }
 
 .all-input {
@@ -171,6 +176,7 @@ p {
   flex-wrap: wrap;
   flex-direction: column;
   width: 50%;
+  filter: var(--shadow-down);
 }
 
 .input-cont h4 {
@@ -243,7 +249,7 @@ p {
 }
 
 /* Sidebar*/
-
+      
 .sidenav {
   overflow: hidden;
   display: flex;
@@ -261,10 +267,9 @@ p {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column; /* Full-height: remove this if you want "auto" height */
+  flex-direction: column; 
   justify-content: center;
   gap: 5rem;
-/* Set the width of the sidebar */
   margin: 0;
   padding: 0;
 }
@@ -283,7 +288,7 @@ p {
 
 .sidenav li a:hover {
   color: var(--blue-title);
-  border-radius: 0 var(--border-button) var(--border-button) 0;
+  border-radius: 0 var(--border-sidebar) var(--border-sidebar) 0;
   background: radial-gradient(238.08% 98.62% at 93.33% 50%, rgba(255, 255, 255, 0.81) 0%, rgba(232, 242, 251, 0.81) 56.4%, rgba(188, 226, 255, 0.36) 100%);
   filter: var(--shadow-down);
   backdrop-filter: blur(65px);
@@ -297,4 +302,77 @@ p {
 
 .material-symbols-outlined {
   color: var(--gray-text);
+}
+
+/*  Choices */
+.choices {
+  grid-area: choices;
+  display: flex;
+  height: 2rem;
+  padding: var(--Short-card, 8px);
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-content: center;
+
+  border-radius: var(--border-mini);
+  border: var(--white) solid 2px;
+
+  background: var(--white-container);
+  backdrop-filter: blur(65px);
+}
+
+.choice {
+  display: flex;
+  width: 3rem;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+.choice:hover {
+  background: var(--white);
+  border-radius: calc(var(--border-mini)*0.7);
+}
+
+
+/* Buttons */
+
+/* CSS */
+.button {
+background-color: rgb(80,148,197, 0.8);
+border-radius: var(--border-button);
+  border: 2px solid #FFF;
+box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+box-sizing: border-box;
+cursor: pointer;
+display: inline-block;
+color: var(--white);
+font-size: var(--sidebar-size);
+font-weight: bold;
+padding: 0 10px 0 10px;
+
+position: relative;
+text-align: center;
+text-decoration: none;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+vertical-align: middle;
+height: 2em;
+width: 7em;
+}
+
+.button:hover {
+background-color:  rgb(80,148,197, 0.7);
+box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+outline: 0;
+}
+
+.button:active {
+  position: relative;
+  top: 2px;
 }
